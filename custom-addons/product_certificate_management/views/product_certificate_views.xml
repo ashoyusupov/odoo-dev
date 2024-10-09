@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_certificate_form" model="ir.ui.view">
+        <field name="name">product.certificate.form</field>
+        <field name="model">product.certificate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="certificate"/>
+                        <field name="responsible_user_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="days_before_expiry"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_certificate_tree" model="ir.ui.view">
+        <field name="name">product.certificate.tree</field>
+        <field name="model">product.certificate</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="certificate"/>
+                <field name="responsible_user_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="days_before_expiry"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_certificate" model="ir.actions.act_window">
+        <field name="name">Product Certificates</field>
+        <field name="res_model">product.certificate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_product_certificate"
+              name="Product Certificates"
+              action="action_product_certificate"
+              parent="stock.menu_stock_inventory_control"
+              sequence="100"/>
+</odoo>
